@@ -22,4 +22,14 @@ export class TaskService {
   addTask(task: { title: string; completed: boolean }): Observable<any> {
     return this.http.post(this.apiUrl, task); // Uses HttpClient to make a POST request to the API endpoint with the task data
   }
+
+  /**
+   * Deletes a task from the backend API.
+   * @param {any} task - The task object (or just the task ID) to be deleted. Assumes task object has an 'id' property.
+   * @returns {Observable<any>} An Observable that emits the response from the API after task deletion.
+   */
+  deleteTask(task: any): Observable<any> {
+    const deleteUrl = `${this.apiUrl}${task.id}/`; // Construct the API endpoint for deleting a specific task using its ID
+    return this.http.delete(deleteUrl); // Use HttpClient to send a DELETE request to the specific task's API endpoint
+  }
 }
