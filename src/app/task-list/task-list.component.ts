@@ -6,26 +6,43 @@ import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [FormsModule, NgFor], // Imports FormsModule for ngModel and NgFor for *ngFor directive
+  imports: [FormsModule, NgFor],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit {
-  tasks: any[] = []; // Array to store the tasks fetched from the service
+  tasks: any[] = [];
+  newTask = ''; // Property to hold the value of the new task input
 
-  constructor(private taskService: TaskService) {} // Inject TaskService in the constructor
+  constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.loadTasks(); // Call loadTasks when the component initializes
+    this.loadTasks();
+  }
+
+  loadTasks(): void {
+    this.taskService.getTasks().subscribe((data: any) => {
+      this.tasks = data;
+    });
   }
 
   /**
-   * Loads tasks from the TaskService and updates the component's tasks array.
+   * Adds a new task using the TaskService and refreshes the task list.
    */
-  loadTasks(): void {
-    this.taskService.getTasks().subscribe((data: any) => {
-      // Subscribe to the getTasks Observable
-      this.tasks = data; // Assign the received task data to the tasks array
-    });
+  addTask(): void {
+    if (this.newTask.trim()) {
+      // Check if newTask is not empty after trimming whitespace
+      this.taskService
+        .addTask({
+          // Call the addTask method of the TaskService
+          title: this.newTask, // Pass the newTask as the title for the new task
+          completed: false, // Set initial completed status to false
+        })
+        .subscribe(() => {
+          // Subscribe to the Observable returned by addTask
+          this.loadTasks(); // Reload the task list after successfully adding a task
+          this.newTask = ''; // Clear the newTask input field
+        });
+    }
   }
 }
