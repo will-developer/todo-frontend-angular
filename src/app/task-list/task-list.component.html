@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Todo List</h1>
+  <p class="edit-hint">Clique no título da tarefa para editar.</p>
 
   <div class="input-section">
     <input [(ngModel)]="newTask" placeholder="Adicionar nova tarefa" (keyup.enter)="addTask()">
@@ -8,15 +9,18 @@
 
   <ul class="task-list">
     <li *ngFor="let task of tasks" [class.completed]="task.completed">
-      <ng-container *ngIf="!task.editing; else editTaskTemplate"> <!-- Conditionally render span or input based on task.editing -->
-        <span (click)="enableEditMode(task)">{{ task.title }}</span> <!-- Span to display task title, click to enable edit mode -->
+      <ng-container *ngIf="!task.editing; else editTaskTemplate">
+        <span>{{ task.title }}</span>
       </ng-container>
-      <ng-template #editTaskTemplate> <!-- Template for edit mode -->
-        <input type="text" [(ngModel)]="task.title" (blur)="saveTask(task)" (keyup.enter)="saveTask(task)"> <!-- Input field for editing task title -->
-        <button (click)="saveTask(task)">Salvar</button> <!-- Save button -->
-        <button (click)="disableEditMode(task)">Cancelar</button> <!-- Cancel button -->
+      <ng-template #editTaskTemplate>
+        <input type="text" [(ngModel)]="task.title" (blur)="saveTask(task)" (keyup.enter)="saveTask(task)">
+        <div class="edit-buttons">
+          <button (click)="saveTask(task)">Salvar</button>
+          <button (click)="disableEditMode(task)">Cancelar</button>
+        </div>
       </ng-template>
       <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
+      <button class="edit-button" *ngIf="!task.editing" (click)="enableEditMode(task)" aria-label="Editar tarefa">✏️</button> <!-- Edit icon button -->
       <button class="delete-button" (click)="deleteTask(task)" aria-label="Excluir tarefa">🗑️</button>
     </li>
   </ul>

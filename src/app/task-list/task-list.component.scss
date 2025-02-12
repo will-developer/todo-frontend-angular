@@ -68,5 +68,22 @@
         border-radius: 4px; /* Add border radius on hover if desired */
       }
     }
+
+    .edit-button { /* Style for the edit icon button */
+      background: none; /* No background */
+      color: #007bff; /* Blue color for edit icon */
+      border: none; /* No border */
+      padding: 0; /* Adjust padding if needed */
+      border-radius: 0; /* No border radius */
+      cursor: pointer;
+      font-size: 1.2rem; /* Adjust icon size */
+      margin-left: 0.5rem; /* Add some spacing to the left of delete button */
+
+      &:hover {
+        color: #0056b3; /* Darker blue on hover */
+        background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+        border-radius: 4px; /* Add border radius on hover if desired */
+      }
+    }
   }
 }
