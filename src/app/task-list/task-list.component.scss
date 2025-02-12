@@ -70,8 +70,36 @@
       margin-left: auto; /* Push actions to the right side */
     }
 
-    input[type="checkbox"] {
-      margin-right: 0.5rem; /* Space between checkbox and edit button */
+    input[type="checkbox"] { /* Default browser checkbox styles are being reset first */
+      appearance: none; /* Important: removes default browser styling */
+      -webkit-appearance: none; /* For Safari */
+      -moz-appearance: none; /* For Firefox */
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid #ced4da; /* Gray border */
+      border-radius: 3px;
+      background-color: white;
+      cursor: pointer;
+      outline: none; /* Remove default focus outline */
+      position: relative; /* For positioning the checkmark */
+      margin-right: 0.5rem; /* Keep existing right margin for spacing */
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Focus ring */
+      }
+
+      &:checked {
+        background-color: #007bff; /* Blue background when checked */
+        border-color: #007bff; /* Blue border when checked */
+        &::before { /* Checkmark icon using pseudo-element */
+          content: '\2713'; /* Unicode checkmark character */
+          position: absolute;
+          top: -2px;
+          left: 2px;
+          font-size: 0.9rem;
+          color: white;
+        }
+      }
     }
 
     .delete-button {  /* Style for delete button (now icon) */
