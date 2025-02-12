@@ -9,7 +9,8 @@
   <ul class="task-list">
     <li *ngFor="let task of tasks" [class.completed]="task.completed"> <!-- Added class binding to apply 'completed' class based on task.completed -->
       <span>{{ task.title }}</span>
-      <input type="checkbox" [checked]="task.completed" (change)="task.completed = !task.completed"> <!-- Checkbox to toggle task completion -->
+      <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)"> <!-- call toggleCompleted -->
+      <button class="delete-button" (click)="deleteTask(task)">Excluir</button> <!-- Delete button for each task -->
     </li>
   </ul>
 </div>

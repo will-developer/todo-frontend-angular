@@ -51,5 +51,19 @@
         color: #6c757d; // Gray color for completed task text
       }
     }
+
+    .delete-button {  /* Style for delete button within task list item */
+      background: #dc3545; /* Red background */
+      color: white;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+
+      &:hover {
+        background: #c82333; /* Darker red on hover */
+      }
+    }
   }
 }
