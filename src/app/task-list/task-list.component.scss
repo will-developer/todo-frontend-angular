@@ -10,11 +10,26 @@
   display: flex;
   gap: 0.5rem;
 
-  input {
+  input { /* Enhanced style for "Add New Task" input */
     flex: 1;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 0.8rem 1rem; /* Slightly larger padding */
+    border: 1px solid #ced4da; /* Softer gray border */
+    border-radius: 6px; /* Rounded corners */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1); /* Subtle inset shadow */
+    font-size: 1rem; /* Consistent font size */
+    font-family: inherit; /* Inherit font family */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Smooth transitions */
+
+    &::placeholder { /* Style for placeholder text */
+      color: #6c757d; /* Gray placeholder color */
+      font-style: italic; /* Italic placeholder text */
+    }
+
+    &:focus { /* Focus state styling */
+      border-color: #80bdff; /* Blue focus border */
+      outline: none;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 0 0.2rem rgba(0,123,255,.25); /* Focus shadow */
+    }
   }
 
   button {
