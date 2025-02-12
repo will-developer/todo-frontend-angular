@@ -61,4 +61,20 @@ export class TaskListComponent implements OnInit {
       this.loadTasks(); // Re-fetch tasks from the backend to ensure data consistency (Alternative: remove optimistically and refresh)
     });
   }
+
+  enableEditMode(task: any): void {
+    task.editing = true; // Set 'editing' property to true to switch to edit mode in template
+  }
+
+  disableEditMode(task: any): void {
+    task.editing = false; // Set 'editing' property to false to switch back to display mode
+  }
+
+  saveTask(task: any): void {
+    this.taskService.updateTask(task).subscribe(() => {
+      // Call updateTask method of TaskService
+      this.disableEditMode(task); // Disable edit mode after successful save
+      this.loadTasks(); // Re-fetch tasks to reflect updated data (Alternative: update task in local array optimistically)
+    });
+  }
 }
