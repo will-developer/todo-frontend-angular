@@ -1,1 +1,9 @@
-<p>task-list works!</p>
+<div class="container">
+  <h1>Todo List</h1>
+
+  <ul class="task-list">
+    <li *ngFor="let task of tasks"> <!-- Iterate over the tasks array -->
+      <span>{{ task.title }}</span> <!-- Display the task title -->
+    </li>
+  </ul>
+</div>
