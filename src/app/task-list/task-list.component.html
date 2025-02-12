@@ -12,7 +12,7 @@
   <ul class="task-list">
     <li *ngFor="let task of tasks" [class.completed]="task.completed">
       <ng-container *ngIf="!task.editing; else editTaskTemplate">
-        <span (click)="enableEditMode(task)" title="{{task.title}}">{{ task.title }}</span>
+        <span>{{ task.title }}</span>
       </ng-container>
       <ng-template #editTaskTemplate>
         <div class="edit-input-group">
@@ -22,9 +22,9 @@
         <button class="cancel-button" (click)="disableEditMode(task)" aria-label="Cancelar edição">❌</button>
       </ng-template>
       <div class="task-actions">
-        <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
+        <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)" *ngIf="!task.editing">
         <button class="edit-button" *ngIf="!task.editing" (click)="enableEditMode(task)" aria-label="Editar tarefa">✏️</button>
-        <button class="delete-button" (click)="deleteTask(task)" aria-label="Excluir tarefa">🗑️</button>
+        <button class="delete-button" *ngIf="!task.editing" (click)="deleteTask(task)" aria-label="Excluir tarefa">🗑️</button>
       </div>
     </li>
   </ul>
