@@ -17,7 +17,7 @@
         <button (click)="disableEditMode(task)">Cancelar</button> <!-- Cancel button -->
       </ng-template>
       <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
-      <button class="delete-button" (click)="deleteTask(task)">Excluir</button>
+      <button class="delete-button" (click)="deleteTask(task)" aria-label="Excluir tarefa">🗑️</button>
     </li>
   </ul>
 </div>
