@@ -5,13 +5,13 @@
   font-family: Arial, sans-serif;
 }
 
-.input-section { // Styles for the input section
+.input-section {
   margin-bottom: 1.5rem;
-  display: flex; // Use flexbox for layout
-  gap: 0.5rem; // Gap between input and button
+  display: flex;
+  gap: 0.5rem;
 
   input {
-    flex: 1; // Input takes up available space
+    flex: 1;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -19,14 +19,14 @@
 
   button {
     padding: 0.5rem 1rem;
-    background: #007bff; // Primary blue color
+    background: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 
     &:hover {
-      background: #0056b3; // Darker shade of blue on hover
+      background: #0056b3;
     }
   }
 }
@@ -36,9 +36,20 @@
   padding: 0;
 
   li {
+    display: flex; // Use flexbox for list item layout
+    justify-content: space-between; // Space between task text and checkbox
+    align-items: center; // Vertically align items in list item
     padding: 0.8rem;
     margin-bottom: 0.5rem;
-    background: #f8f9fa; // Light gray background
+    background: #f8f9fa;
     border-radius: 4px;
+
+    &.completed { // Styles for completed tasks
+      background: #e9ecef; // Lighter gray background for completed tasks
+      span {
+        text-decoration: line-through; // Line-through for completed task text
+        color: #6c757d; // Gray color for completed task text
+      }
+    }
   }
 }

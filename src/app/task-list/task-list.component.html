@@ -1,14 +1,15 @@
 <div class="container">
   <h1>Todo List</h1>
 
-  <div class="input-section"> <!-- Section for input and button -->
-    <input [(ngModel)]="newTask" placeholder="Adicionar nova tarefa"> <!-- Input field for new task title, using ngModel for two-way binding -->
-    <button (click)="addTask()">Adicionar</button> <!-- Button to trigger addTask function -->
+  <div class="input-section">
+    <input [(ngModel)]="newTask" placeholder="Adicionar nova tarefa" (keyup.enter)="addTask()"> <!-- Added keyup.enter event to trigger addTask on Enter key -->
+    <button (click)="addTask()">Adicionar</button>
   </div>
 
   <ul class="task-list">
-    <li *ngFor="let task of tasks">
+    <li *ngFor="let task of tasks" [class.completed]="task.completed"> <!-- Added class binding to apply 'completed' class based on task.completed -->
       <span>{{ task.title }}</span>
+      <input type="checkbox" [checked]="task.completed" (change)="task.completed = !task.completed"> <!-- Checkbox to toggle task completion -->
     </li>
   </ul>
 </div>
