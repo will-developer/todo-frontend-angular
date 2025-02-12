@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Todo List</h1>
-  <p class="edit-hint">Clique no título da tarefa para editar.</p>
+  <p class="edit-hint">Clique no ícone de lápis para editar a tarefa.</p> <!-- Updated hint text -->
 
   <div class="input-section">
     <input [(ngModel)]="newTask" placeholder="Adicionar nova tarefa" (keyup.enter)="addTask()">
@@ -13,14 +13,14 @@
         <span>{{ task.title }}</span>
       </ng-container>
       <ng-template #editTaskTemplate>
-        <input type="text" [(ngModel)]="task.title" (blur)="saveTask(task)" (keyup.enter)="saveTask(task)">
-        <div class="edit-buttons">
-          <button (click)="saveTask(task)">Salvar</button>
-          <button (click)="disableEditMode(task)">Cancelar</button>
+        <div class="edit-input-group"> <!-- Container for input and update button -->
+          <input type="text" [(ngModel)]="task.title" (blur)="saveTask(task)" (keyup.enter)="saveTask(task)">
+          <button class="update-button" (click)="saveTask(task)" aria-label="Salvar alterações">✔️</button> <!-- Update/Save icon button -->
         </div>
+        <button class="cancel-button" (click)="disableEditMode(task)" aria-label="Cancelar edição">❌</button> <!-- Cancel icon button -->
       </ng-template>
       <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
-      <button class="edit-button" *ngIf="!task.editing" (click)="enableEditMode(task)" aria-label="Editar tarefa">✏️</button> <!-- Edit icon button -->
+      <button class="edit-button" *ngIf="!task.editing" (click)="enableEditMode(task)" aria-label="Editar tarefa">✏️</button>
       <button class="delete-button" (click)="deleteTask(task)" aria-label="Excluir tarefa">🗑️</button>
     </li>
   </ul>
