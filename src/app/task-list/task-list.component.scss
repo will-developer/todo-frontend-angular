@@ -3,6 +3,15 @@
   margin: 2rem auto;
   padding: 1rem;
   font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 { /* Style for "Lista de Tarefas" title */
+  font-size: 2rem; /* Larger font size */
+  font-weight: 700; /* Bold font weight */
+  color: #343a40; /* Dark gray color for title */
+  margin-bottom: 1rem; /* Add some bottom margin to separate from input section */
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.05); /* Subtle text shadow for depth */
 }
 
 .input-section {
