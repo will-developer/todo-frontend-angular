@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Todo List</h1>
-  <p class="edit-hint">Clique no ícone de lápis para editar a tarefa.</p>
+  <p class="edit-hint">✅ Clique no ícone no quadrado para completar a tarefa</p>
+  <p class="edit-hint">✅ Clique no icone do lápis para editar a tarefa</p>
+  <p class="edit-hint">✅ Clique no ícone da lixeira para excluir a tarefa</p>
 
   <div class="input-section">
     <input [(ngModel)]="newTask" placeholder="Adicionar nova tarefa" (keyup.enter)="addTask()">
@@ -10,7 +12,7 @@
   <ul class="task-list">
     <li *ngFor="let task of tasks" [class.completed]="task.completed">
       <ng-container *ngIf="!task.editing; else editTaskTemplate">
-        <span (click)="enableEditMode(task)" title="{{task.title}}">{{ task.title }}</span> <!-- Added title attribute for tooltip -->
+        <span (click)="enableEditMode(task)" title="{{task.title}}">{{ task.title }}</span>
       </ng-container>
       <ng-template #editTaskTemplate>
         <div class="edit-input-group">
@@ -19,9 +21,11 @@
         </div>
         <button class="cancel-button" (click)="disableEditMode(task)" aria-label="Cancelar edição">❌</button>
       </ng-template>
-      <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
-      <button class="edit-button" *ngIf="!task.editing" (click)="enableEditMode(task)" aria-label="Editar tarefa">✏️</button>
-      <button class="delete-button" (click)="deleteTask(task)" aria-label="Excluir tarefa">🗑️</button>
+      <div class="task-actions">
+        <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
+        <button class="edit-button" *ngIf="!task.editing" (click)="enableEditMode(task)" aria-label="Editar tarefa">✏️</button>
+        <button class="delete-button" (click)="deleteTask(task)" aria-label="Excluir tarefa">🗑️</button>
+      </div>
     </li>
   </ul>
 </div>

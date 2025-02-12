@@ -60,6 +60,18 @@
       text-overflow: ellipsis; /* Add ellipsis (...) for overflowing text */
       overflow: hidden; /* Hide overflow */
       white-space: nowrap; /* Prevent wrapping to a new line initially */
+      flex-grow: 1; /* Allow span to take up available horizontal space */
+      margin-right: 1rem; /* Add some margin to separate text from icons/checkbox */
+    }
+
+    .task-actions { /* New container for checkbox, edit, delete buttons */
+      display: flex; /* Use flexbox to group actions */
+      align-items: center; /* Vertically align actions */
+      margin-left: auto; /* Push actions to the right side */
+    }
+
+    input[type="checkbox"] {
+      margin-right: 0.5rem; /* Space between checkbox and edit button */
     }
 
     .delete-button {  /* Style for delete button (now icon) */
@@ -70,7 +82,7 @@
       border-radius: 0; /* No border radius */
       cursor: pointer;
       font-size: 1.2rem; /* Adjust icon size */
-      margin-left: 0.5rem; /* Add some spacing to the left */
+      margin-left: 0; /* Reset left margin, spacing handled by task-actions and edit button margin */
 
       &:hover {
         color: #c82333; /* Darker red on hover */
@@ -87,7 +99,8 @@
       border-radius: 0; /* No border radius */
       cursor: pointer;
       font-size: 1.2rem; /* Adjust icon size */
-      margin-left: 0.5rem; /* Add some spacing to the left of delete button */
+      margin-left: 0; /* Reset left margin, spacing handled by task-actions and checkbox margin */
+      margin-right: 0.5rem; /* Space between edit and delete button */
 
       &:hover {
         color: #0056b3; /* Darker blue on hover */
