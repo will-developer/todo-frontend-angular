@@ -32,4 +32,14 @@ export class TaskService {
     const deleteUrl = `${this.apiUrl}${task.id}/`; // Construct the API endpoint for deleting a specific task using its ID
     return this.http.delete(deleteUrl); // Use HttpClient to send a DELETE request to the specific task's API endpoint
   }
+
+  /**
+   * Updates an existing task in the backend API.
+   * @param {any} task - The task object with updated properties (including the 'id').
+   * @returns {Observable<any>} An Observable that emits the response from the API after task update.
+   */
+  updateTask(task: any): Observable<any> {
+    const updateUrl = `${this.apiUrl}${task.id}/`; // Construct API endpoint for updating a specific task by ID
+    return this.http.put(updateUrl, task); // Use HttpClient to send a PUT request to the task's API endpoint with the updated task data in the body
+  }
 }
