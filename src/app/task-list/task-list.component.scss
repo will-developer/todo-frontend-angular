@@ -52,6 +52,16 @@
       }
     }
 
+    span { /* Style for task title span (display mode) */
+      word-break: break-word; /* Allow long words to break and wrap */
+      overflow-wrap: break-word; /* Alternative for word-break */
+      display: inline-block; /* Needed for text-overflow: ellipsis to work in some cases */
+      max-width: calc(100% - 100px); /* Example max-width, adjust as needed, leave space for icons/checkbox */
+      text-overflow: ellipsis; /* Add ellipsis (...) for overflowing text */
+      overflow: hidden; /* Hide overflow */
+      white-space: nowrap; /* Prevent wrapping to a new line initially */
+    }
+
     .delete-button {  /* Style for delete button (now icon) */
       background: none; /* No background */
       color: #dc3545; /* Red color for icon */

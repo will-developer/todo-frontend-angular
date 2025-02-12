@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Todo List</h1>
-  <p class="edit-hint">Clique no ícone de lápis para editar a tarefa.</p> <!-- Updated hint text -->
+  <p class="edit-hint">Clique no ícone de lápis para editar a tarefa.</p>
 
   <div class="input-section">
     <input [(ngModel)]="newTask" placeholder="Adicionar nova tarefa" (keyup.enter)="addTask()">
@@ -10,14 +10,14 @@
   <ul class="task-list">
     <li *ngFor="let task of tasks" [class.completed]="task.completed">
       <ng-container *ngIf="!task.editing; else editTaskTemplate">
-        <span>{{ task.title }}</span>
+        <span (click)="enableEditMode(task)" title="{{task.title}}">{{ task.title }}</span> <!-- Added title attribute for tooltip -->
       </ng-container>
       <ng-template #editTaskTemplate>
-        <div class="edit-input-group"> <!-- Container for input and update button -->
+        <div class="edit-input-group">
           <input type="text" [(ngModel)]="task.title" (blur)="saveTask(task)" (keyup.enter)="saveTask(task)">
-          <button class="update-button" (click)="saveTask(task)" aria-label="Salvar alterações">✔️</button> <!-- Update/Save icon button -->
+          <button class="update-button" (click)="saveTask(task)" aria-label="Salvar alterações">✔️</button>
         </div>
-        <button class="cancel-button" (click)="disableEditMode(task)" aria-label="Cancelar edição">❌</button> <!-- Cancel icon button -->
+        <button class="cancel-button" (click)="disableEditMode(task)" aria-label="Cancelar edição">❌</button>
       </ng-template>
       <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
       <button class="edit-button" *ngIf="!task.editing" (click)="enableEditMode(task)" aria-label="Editar tarefa">✏️</button>
