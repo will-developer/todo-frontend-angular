@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Lista de Tarefas</h1>
+  <h1 class="main-title">Lista de Tarefas</h1>
 
   <div class="input-section">
     <input [(ngModel)]="newTask" placeholder="Adicionar nova tarefa" (keyup.enter)="addTask()">
@@ -9,7 +9,7 @@
   <ul class="task-list">
     <li *ngFor="let task of tasks" [class.completed]="task.completed">
       <ng-container *ngIf="!task.editing; else editTaskTemplate">
-        <span>{{ task.title }}</span>
+        <span class="paragraph">{{ task.title }}</span>
       </ng-container>
       <ng-template #editTaskTemplate>
         <div class="edit-input-group">

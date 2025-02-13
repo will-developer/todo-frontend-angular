@@ -2,16 +2,17 @@
   max-width: 600px;
   margin: 2rem auto;
   padding: 1rem;
-  font-family: Arial, sans-serif;
-  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-h1 { /* Style for "Lista de Tarefas" title */
-  font-size: 2rem; /* Larger font size */
-  font-weight: 700; /* Bold font weight */
-  color: #343a40; /* Dark gray color for title */
-  margin-bottom: 1rem; /* Add some bottom margin to separate from input section */
-  text-shadow: 2px 2px 3px rgba(0,0,0,0.05); /* Subtle text shadow for depth */
+.main-title {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.05);
 }
 
 .input-section {
@@ -19,25 +20,25 @@ h1 { /* Style for "Lista de Tarefas" title */
   display: flex;
   gap: 0.5rem;
 
-  input { /* Enhanced style for "Add New Task" input */
+  input {
     flex: 1;
-    padding: 0.8rem 1rem; /* Slightly larger padding */
-    border: 1px solid #ced4da; /* Softer gray border */
-    border-radius: 6px; /* Rounded corners */
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.1); /* Subtle inset shadow */
-    font-size: 1rem; /* Consistent font size */
-    font-family: inherit; /* Inherit font family */
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Smooth transitions */
+    padding: 0.8rem 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-    &::placeholder { /* Style for placeholder text */
-      color: #6c757d; /* Gray placeholder color */
-      font-style: italic; /* Italic placeholder text */
+    &::placeholder {
+      color: #6c757d;
+      font-style: italic;
     }
 
-    &:focus { /* Focus state styling */
-      border-color: #80bdff; /* Blue focus border */
+    &:focus {
+      border-color: #80bdff;
       outline: none;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 0 0.2rem rgba(0,123,255,.25); /* Focus shadow */
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 0 0.2rem rgba(0,123,255,.25);
     }
   }
 
@@ -60,63 +61,63 @@ h1 { /* Style for "Lista de Tarefas" title */
   padding: 0;
 
   li {
-    display: flex; // Use flexbox for list item layout
-    justify-content: space-between; // Space between task text and checkbox
-    align-items: center; // Vertically align items in list item
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.8rem;
     margin-bottom: 0.5rem;
     background: #f8f9fa;
     border-radius: 4px;
 
-    &.completed { // Styles for completed tasks
-      background: #e9ecef; // Lighter gray background for completed tasks
+    &.completed {
+      background: #e9ecef;
       span {
-        text-decoration: line-through; // Line-through for completed task text
-        color: #6c757d; // Gray color for completed task text
+        text-decoration: line-through;
+        color: #6c757d;
       }
     }
 
-    span { /* Style for task title span (display mode) */
-      word-break: break-word; /* Allow long words to break and wrap */
-      overflow-wrap: break-word; /* Alternative for word-break */
-      display: inline-block; /* Needed for text-overflow: ellipsis to work in some cases */
-      max-width: calc(100% - 100px); /* Example max-width, adjust as needed, leave space for icons/checkbox */
-      text-overflow: ellipsis; /* Add ellipsis (...) for overflowing text */
-      overflow: hidden; /* Hide overflow */
-      white-space: nowrap; /* Prevent wrapping to a new line initially */
-      flex-grow: 1; /* Allow span to take up available horizontal space */
-      margin-right: 1rem; /* Add some margin to separate text from icons/checkbox */
+    span {
+      word-break: break-word;
+      overflow-wrap: break-word;
+      display: inline-block;
+      max-width: calc(100% - 100px);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      flex-grow: 1;
+      margin-right: 1rem;
     }
 
-    .task-actions { /* New container for checkbox, edit, delete buttons */
-      display: flex; /* Use flexbox to group actions */
-      align-items: center; /* Vertically align actions */
-      margin-left: auto; /* Push actions to the right side */
+    .task-actions {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
     }
 
-    input[type="checkbox"] { /* Default browser checkbox styles are being reset first */
-      appearance: none; /* Important: removes default browser styling */
-      -webkit-appearance: none; /* For Safari */
-      -moz-appearance: none; /* For Firefox */
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       width: 18px;
       height: 18px;
-      border: 1.5px solid #ced4da; /* Gray border */
+      border: 1.5px solid #ced4da;
       border-radius: 3px;
       background-color: white;
       cursor: pointer;
-      outline: none; /* Remove default focus outline */
-      position: relative; /* For positioning the checkmark */
-      margin-right: 0.5rem; /* Keep existing right margin for spacing */
+      outline: none;
+      position: relative;
+      margin-right: 0.5rem;
 
       &:focus {
-        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Focus ring */
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
       }
 
       &:checked {
-        background-color: #007bff; /* Blue background when checked */
-        border-color: #007bff; /* Blue border when checked */
-        &::before { /* Checkmark icon using pseudo-element */
-          content: '\2713'; /* Unicode checkmark character */
+        background-color: #007bff;
+        border-color: #007bff;
+        &::before {
+          content: '\2713';
           position: absolute;
           top: -2px;
           left: 2px;
@@ -126,99 +127,97 @@ h1 { /* Style for "Lista de Tarefas" title */
       }
     }
 
-    .delete-button {  /* Style for delete button (now icon) */
-      background: none; /* No background */
-      color: #dc3545; /* Red color for icon */
-      border: none; /* No border */
-      padding: 0; /* Adjust padding if needed */
-      border-radius: 0; /* No border radius */
+    .delete-button {
+      background: none;
+      color: #dc3545;
+      border: none;
+      padding: 0;
+      border-radius: 0;
       cursor: pointer;
-      font-size: 1.2rem; /* Adjust icon size */
-      margin-left: 0; /* Reset left margin, spacing handled by task-actions and edit button margin */
+      font-size: 1.2rem;
+      margin-left: 0;
 
       &:hover {
-        color: #c82333; /* Darker red on hover */
-        background-color: rgba(220, 53, 69, 0.1); /* Light red background on hover for better visual feedback */
-        border-radius: 4px; /* Add border radius on hover if desired */
+        color: #c82333;
+        background-color: rgba(220, 53, 69, 0.1);
+        border-radius: 4px;
       }
     }
 
-    .edit-button { /* Style for the edit icon button */
-      background: none; /* No background */
-      color: #007bff; /* Blue color for edit icon */
-      border: none; /* No border */
-      padding: 0; /* Adjust padding if needed */
-      border-radius: 0; /* No border radius */
+    .edit-button {
+      background: none;
+      color: #007bff;
+      border: none;
+      padding: 0;
+      border-radius: 0;
       cursor: pointer;
-      font-size: 1.2rem; /* Adjust icon size */
-      margin-left: 0; /* Reset left margin, spacing handled by task-actions and checkbox margin */
-      margin-right: 0.5rem; /* Space between edit and delete button */
+      font-size: 1.2rem;
+      margin-left: 0;
+      margin-right: 0.5rem;
 
       &:hover {
-        color: #0056b3; /* Darker blue on hover */
-        background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
-        border-radius: 4px; /* Add border radius on hover if desired */
+        color: #0056b3;
+        background-color: rgba(0, 123, 255, 0.1);
+        border-radius: 4px;
       }
     }
 
-    .edit-input-group { /* Container for edit input and update button */
-      display: flex; /* Use flexbox to align input and button horizontally */
-      flex-grow: 1; /* Allow input group to take up available space */
-      align-items: center; /* Vertically align items */
+    .edit-input-group {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
     }
 
 
-    input[type="text"] { /* Enhanced input style */
+    input[type="text"] {
       flex-grow: 1;
       margin-right: 0.5rem;
-      padding: 0.6rem 0.8rem; /* Slightly larger padding */
-      border: 1px solid #ced4da; /* Softer gray border */
-      border-radius: 6px; /* More rounded corners */
-      box-shadow: inset 0 1px 3px rgba(0,0,0,.1); /* Subtle inset shadow */
-      font-size: 1rem; /* Match font size with task text */
-      font-family: inherit; /* Inherit font family from body */
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Smooth transition for focus state */
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
 
-    input[type="text"]:focus { /* Focus state styling - IMPORTANT: Add `:focus` here to target focus state */
-      border-color: #80bdff; /* Focus blue border */
+    input[type="text"]:focus {
+      border-color: #80bdff;
       outline: 0;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 0 0.2rem rgba(0,123,255,.25); /* Focus shadow */
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 0 0.2rem rgba(0,123,255,.25);
     }
 
-    .update-button, .cancel-button { /* Styles for update and cancel buttons */
-      background: none; /* No background */
-      border: none; /* No border */
-      padding: 0; /* Adjust padding if needed */
-      border-radius: 0; /* No border radius */
+    .update-button, .cancel-button {
+      background: none;
+      border: none;
+      padding: 0;
+      border-radius: 0;
       cursor: pointer;
-      font-size: 1.2rem; /* Icon size */
-      margin-left: 0.2rem; /* Spacing */
+      font-size: 1.2rem;
+      margin-left: 0.2rem;
     }
 
-    .update-button { /* Style for update button */
-      color: #28a745; /* Green color */
+    .update-button {
+      color: #28a745;
       &:hover {
-        color: #218838; /* Darker green on hover */
-        background-color: rgba(40, 167, 69, 0.1); /* Light green background on hover */
+        color: #218838;
+        background-color: rgba(40, 167, 69, 0.1);
         border-radius: 4px;
       }
     }
 
-    .cancel-button { /* Style for cancel button */
-      color: #dc3545; /* Red color */
+    .cancel-button {
+      color: #dc3545;
       &:hover {
-        color: #c82333; /* Darker red on hover */
-        background-color: rgba(220, 53, 69, 0.1); /* Light red background on hover */
+        color: #c82333;
+        background-color: rgba(220, 53, 69, 0.1);
         border-radius: 4px;
       }
     }
-
-
-    .edit-buttons { /* Remove styles for .edit-buttons container, now using .edit-input-group and individual button styles */
-      display: initial; /* Revert to default display */
+      .edit-buttons {
+      display: initial;
       gap: initial;
-      button { /* Revert general button styles inside edit-buttons */
+      button {
         padding: initial;
         border-radius: initial;
         cursor: initial;
@@ -226,7 +225,7 @@ h1 { /* Style for "Lista de Tarefas" title */
         border: initial;
         background-color: initial;
         color: initial;
-        &:first-child, &:last-child, &:hover { /* Revert specific button styles */
+        &:first-child, &:last-child, &:hover {
           background-color: initial;
           color: initial;
         }
