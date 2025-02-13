@@ -1,59 +1,74 @@
-# TodoFrontend
+# Todo List Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+This is the frontend application for a simple Todo List, built with Angular. It allows users to manage their tasks, including adding, viewing, editing, deleting, and marking tasks as complete. This frontend is designed to connect to a backend API (you'll need to set up your backend separately for full functionality).
 
-## Development server
+## 🚀 Installation
 
-To start a local development server, run:
+To run this frontend application locally, follow these steps:
+
+### 1️⃣ Prerequisites
+
+Before you begin, ensure you have the following installed on your machine:
+
+- **Node.js and npm (Node Package Manager):** Angular requires Node.js to run. You can download and install Node.js from [here](https://nodejs.org/). npm usually comes bundled with Node.js.
+- **Angular CLI (Command Line Interface):** The Angular CLI is used to create, manage, and build Angular projects. If you haven't installed it globally yet, you can do so using npm:
+
+  ```bash
+  npm install -g @angular/cli
+  ```
+
+### 2️⃣ Clone the Repository
+
+Clone this repository to your local machine using Git:
+
+```bash
+git clone https://github.com/will-developer/todo-frontend.git
+```
+
+### 3️⃣ Navigate to the Project Directory
+
+Change your current directory in the terminal to the cloned project folder:
+
+```bash
+cd todo-frontend
+```
+
+### 4️⃣ Install Dependencies
+
+Install the project's dependencies using npm. This command reads the `package.json` file and downloads all necessary packages:
+
+```bash
+npm install
+```
+
+### 5️⃣ Run the Development Server
+
+Start the Angular development server. This will build the application and serve it locally, allowing you to view it in your browser:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 6️⃣ Access the Application
 
-## Code scaffolding
+Once the `ng serve` command is finished compiling and bundling, you can access the Todo List frontend in your web browser at:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+🔗 [http://localhost:4200/](http://localhost:4200/)
 
-```bash
-ng generate component component-name
-```
+The application should now be running in your browser. You can start adding, editing, and managing your tasks! ✅
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🔗 Backend Integration
 
-## Building
+This frontend application is designed to communicate with a backend API. Ensure your backend API is running and accessible at the URL configured in:
 
-To build the project run:
+📂 `src/app/services/task.service.ts` (currently set to `http://localhost:8000/api/tasks/`)
 
-```bash
-ng build
-```
+You will need to set up and run your backend separately for the full Todo List functionality to work, including persisting tasks and fetching them from a database.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 🖥️ Backend Repository:
 
-## Running unit tests
+[Todo Backend (Django)](https://github.com/will-developer/todo-backend-django)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
